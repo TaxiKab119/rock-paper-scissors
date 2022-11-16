@@ -13,7 +13,7 @@ function getComputerChoice() {
 // returns their choice to lowercase to have it match options array
 function getPlayerChoice() {
     var playerSelection = String(prompt("What is your selection?"))
-    playerSelection = toLowerCase.playerSelection; //change to lower case
+    playerSelection = playerSelection.toLowerCase; //change to lower case
     return playerSelection
 }
 
