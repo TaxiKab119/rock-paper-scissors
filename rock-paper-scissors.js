@@ -21,8 +21,18 @@ function getPlayerChoice() {
 // The function takes two params: playerSelection and computerSelection
 // returns a sting that declares the winner of the round
 function roundOfGame(playerSelection,computerSelection) {
-    var computerSelection = getComputerChoice()
-    var playerSelection = getPlayerChoice()
+    var computerSelection = getComputerChoice();
+    var playerSelection = getPlayerChoice();
+
+    var winner = getWinner();
+
+    if (winner === 'player') {
+        console.log(`You Win! ${playerSelection.toUpperCase} beats ${computerSelection.toUpperCase}`);
+    } else if (winner === 'computer') {
+        console.log(`You Lose! ${playerSelection.toUpperCase} beats ${computerSelection.toUpperCase}`);
+    } else {
+        console.log('You tied! Great minds think alike!')
+    }
 }
 
 // Function that decides who wins a game or rock paper scissors
