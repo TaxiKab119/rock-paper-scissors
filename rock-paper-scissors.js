@@ -12,26 +12,26 @@ function getComputerChoice() {
 //Function that gets the players choice for a game of rock paper scissors
 // returns their choice to lowercase to have it match options array
 function getPlayerChoice() {
-    var playerSelection = String(prompt("What is your selection?"))
-    playerSelection = playerSelection.toLowerCase; //change to lower case
+    var playerSelection = prompt("What is your selection?")
+    playerSelection = playerSelection.toLowerCase(); //change to lower case
     return playerSelection
 }
 
 // Function that plays a single round of RockPaperScissors.
 // The function takes two params: playerSelection and computerSelection
 // returns a sting that declares the winner of the round
-function roundOfGame(playerSelection,computerSelection) {
+function playRound(playerSelection,computerSelection) {
     var computerSelection = getComputerChoice();
     var playerSelection = getPlayerChoice();
 
-    var winner = getWinner();
+    var winner = getWinner(playerSelection, computerSelection);
 
     if (winner === 'player') {
-        console.log(`You Win! ${playerSelection.toUpperCase} beats ${computerSelection.toUpperCase}`);
+        return `You Win! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
     } else if (winner === 'computer') {
-        console.log(`You Lose! ${playerSelection.toUpperCase} beats ${computerSelection.toUpperCase}`);
+        return `You Lose! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
     } else {
-        console.log('You tied! Great minds think alike!')
+        return 'You tied! Great minds think alike!';
     }
 }
 
@@ -39,7 +39,7 @@ function roundOfGame(playerSelection,computerSelection) {
 // Rock beats scissors; scissors beats paper; paper beats rock
 // Returns a string with the winner either 'player', 'computer or 'none'
 function getWinner(playerSelection, computerSelection) {
-    var winner;
+    let winner;
 
     switch(true) {
 
@@ -61,6 +61,3 @@ function getWinner(playerSelection, computerSelection) {
     return winner
 }
 
-// console.log(getWinner('rock','paper'))// loss
-// console.log(getWinner('paper','rock') )// win
-// console.log(getWinner('paper','paper') )//none
