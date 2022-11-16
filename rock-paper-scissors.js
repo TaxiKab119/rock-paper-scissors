@@ -61,3 +61,21 @@ function getWinner(playerSelection, computerSelection) {
     return winner
 }
 
+// Function which calls playRound() 5 times, keeps score and declares a winner at the end of 5 rounds
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    
+
+    for (let i = 0; i < 5; i++) {
+        playRound()
+        if (winner === 'player') {
+            playerScore += 1;
+        } else if (winner === 'computer') {
+            computerScore +=1;
+        } else {
+            
+        }
+
+    }
+}
