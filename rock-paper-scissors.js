@@ -5,7 +5,7 @@ function getComputerChoice() {
         "paper",
         "scissors"
     ];
-    var computerChoice = OPTIONS[Math.floor(Math.random())*(OPTIONS.length-1)]; // Math.random returns a random number between 0 (inclusive) and 1 (exclusive)...importantly its always lower than 1, Math.floor(Math.random) makes it return an integer * by whatever (n-1) where n is desired number; options.lentgh returns the length of options which is 3
+    var computerChoice = OPTIONS[Math.floor(Math.random())*(OPTIONS.length)]; // Math.random returns a random number between 0 (inclusive) and 1 (exclusive)...importantly its always lower than 1, Math.floor(Math.random) makes it return an integer * by whatever (n-1) where n is desired number; options.lentgh returns the length of options which is 3
     return computerChoice
 }
 
@@ -22,16 +22,20 @@ function getPlayerChoice() {
 // returns a sting that declares the winner of the round
 function playRound(playerSelection,computerSelection) {
     var computerSelection = getComputerChoice();
+    console.log(computerSelection);
     var playerSelection = getPlayerChoice();
 
     var winner = getWinner(playerSelection, computerSelection);
 
     if (winner === 'player') {
-        return `You Win! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
+        console.log(`You Win! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`);
+        return winner
     } else if (winner === 'computer') {
-        return `You Lose! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`;
+        console.log( `You Lose! ${playerSelection.toUpperCase()} beats ${computerSelection.toUpperCase()}.`);
+        return winner
     } else {
-        return 'You tied! Great minds think alike!';
+        console.log('You tied! Great minds think alike!');
+        return winner
     }
 }
 
@@ -68,8 +72,7 @@ function game() {
     
 
     for (let i = 0; i < 5; i++) {
-        playRound()
-        var winner = getWinner()
+        var winner = playRound();
         console.log(winner)
 
         if (winner === 'player') {
