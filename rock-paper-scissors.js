@@ -5,7 +5,7 @@ function getComputerChoice() {
         "paper",
         "scissors"
     ];
-    var computerChoice = OPTIONS[Math.floor(Math.random())*(OPTIONS.length)]; // Math.random returns a random number between 0 (inclusive) and 1 (exclusive)...importantly its always lower than 1, Math.floor(Math.random) makes it return an integer * by whatever (n-1) where n is desired number; options.lentgh returns the length of options which is 3
+    var computerChoice = OPTIONS[Math.floor((Math.random())*(OPTIONS.length))]; // Math.random returns a random number between 0 (inclusive) and 1 (exclusive)...importantly its always lower than 1, Math.floor(Math.random) makes it return an integer * by whatever (n-1) where n is desired number; options.lentgh returns the length of options which is 3
     return computerChoice
 }
 
@@ -22,7 +22,6 @@ function getPlayerChoice() {
 // returns a sting that declares the winner of the round
 function playRound(playerSelection,computerSelection) {
     var computerSelection = getComputerChoice();
-    console.log(computerSelection);
     var playerSelection = getPlayerChoice();
 
     var winner = getWinner(playerSelection, computerSelection);
@@ -73,7 +72,7 @@ function game() {
 
     for (let i = 0; i < 5; i++) {
         var winner = playRound();
-        console.log(winner)
+        // console.log(winner) used for testing
 
         if (winner === 'player') {
             playerScore += 1;
@@ -82,12 +81,12 @@ function game() {
             computerScore +=1;
             console.log(`Player Score: ${playerScore}\nComputer Score: ${computerScore}`);
         } else {
-            console.log('Its a Tie!')
+            // console.log('Its a Tie!')
             console.log(`Player Score: ${playerScore}\nComputer Score: ${computerScore}`);
         }
 
  
     }
 
-    return `Player Score: ${playerScore}\nComputer Score: ${computerScore}`
+    return 'Thanks for Playing'
 }
