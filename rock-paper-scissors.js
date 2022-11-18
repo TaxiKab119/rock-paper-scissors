@@ -70,7 +70,26 @@ function game() {
     let computerScore = 0;
     
 
-    for (let i = 0; i < 5; i++) {
+    // for (let i = 0; i < 5; i++) {
+    //     var winner = playRound();
+    //     // console.log(winner) used for testing
+
+    //     if (winner === 'player') {
+    //         playerScore += 1;
+    //         console.log(`Player Score: ${playerScore}\nComputer Score: ${computerScore}`);
+    //     } else if (winner === 'computer') {
+    //         computerScore +=1;
+    //         console.log(`Player Score: ${playerScore}\nComputer Score: ${computerScore}`);
+    //     } else {
+    //         // console.log('Its a Tie!')
+    //         console.log(`Player Score: ${playerScore}\nComputer Score: ${computerScore}`);
+    //     }
+
+ 
+    // }
+
+    // Make game best of 3, loop stops when someone reaches 3.
+    while ((playerScore + computerScore) < 5) {
         var winner = playRound();
         // console.log(winner) used for testing
 
@@ -84,9 +103,6 @@ function game() {
             // console.log('Its a Tie!')
             console.log(`Player Score: ${playerScore}\nComputer Score: ${computerScore}`);
         }
-
- 
     }
-
     return 'Thanks for Playing'
 }
