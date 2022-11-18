@@ -69,13 +69,22 @@ function game() {
 
     for (let i = 0; i < 5; i++) {
         playRound()
+        var winner = getWinner()
+        console.log(winner)
+
         if (winner === 'player') {
             playerScore += 1;
+            console.log(`Player Score: ${playerScore}\nComputer Score: ${computerScore}`);
         } else if (winner === 'computer') {
             computerScore +=1;
+            console.log(`Player Score: ${playerScore}\nComputer Score: ${computerScore}`);
         } else {
-            
+            console.log('Its a Tie!')
+            console.log(`Player Score: ${playerScore}\nComputer Score: ${computerScore}`);
         }
 
+ 
     }
+
+    return `Player Score: ${playerScore}\nComputer Score: ${computerScore}`
 }
